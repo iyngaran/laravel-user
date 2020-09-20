@@ -1,0 +1,58 @@
+{
+    "name": "iyngaran/laravel-user",
+    "description": "The Laravel API to manage users",
+    "keywords": [
+        "iyngaran",
+        "laravel-user"
+    ],
+    "homepage": "https://github.com/iyngaran/laravel-user",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Iyngaran Iyathurai",
+            "email": "dev@iyngaran.info",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "doctrine/dbal": "^2.10",
+        "iyngaran/api-response": "dev-develop",
+        "laravel/sanctum": "^2.6",
+        "spatie/data-transfer-object": "^1.13",
+        "spatie/laravel-permission": "^3.13"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iyngaran\\LaravelUser\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Iyngaran\\LaravelUser\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Iyngaran\\LaravelUser\\LaravelUserServiceProvider"
+            ],
+            "aliases": {
+                "LaravelUser": "Iyngaran\\LaravelUser\\LaravelUserFacade"
+            }
+        }
+    }
+}

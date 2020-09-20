@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Test Suite" tests="1" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.132179">
+    <testsuite name="Iyngaran\LaravelUser\Tests\Unit\Data\UserDataTest" file="/Users/iyngaran/dev/laravel/packages/laravel-user/tests/Unit/Data/UserDataTest.php" tests="1" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.132179">
+      <testcase name="testUserData" class="Iyngaran\LaravelUser\Tests\Unit\Data\UserDataTest" classname="Iyngaran.LaravelUser.Tests.Unit.Data.UserDataTest" file="/Users/iyngaran/dev/laravel/packages/laravel-user/tests/Unit/Data/UserDataTest.php" line="24" assertions="5" time="0.132179"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
