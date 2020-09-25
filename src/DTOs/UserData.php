@@ -73,14 +73,19 @@ class UserData extends DataTransferObject
     public $logo;
 
     /**
-     * @var \Spatie\Permission\Models\Role[]
+     * @var \Spatie\Permission\Models\Role[]|null
      */
     public $roles;
 
     /**
-     * @var \Spatie\Permission\Models\Permission[]
+     * @var \Spatie\Permission\Models\Permission[]|null
      */
     public $extraPermissions;
+
+    /**
+     * @var string|null
+     */
+    public $passwordChangeAt;
 
     public static function fromRequest(Request $request): array
     {
@@ -109,7 +114,8 @@ class UserData extends DataTransferObject
                 'locationLon' => (double)$request->input('location_lon'),
                 'logo' => $request->input('logo'),
                 'roles' => $roles,
-                'extraPermissions' => $extraPermissions
+                'extraPermissions' => $extraPermissions,
+                'passwordChangeAt' => $request->input('password_change_at')
             ]
         )
         )->toArray();

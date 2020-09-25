@@ -34,6 +34,9 @@ class CreateUserAction
         $userProfile->user()->associate($user)->save();
         $user->assignRole($attributes['roles']);
         $user->givePermissionTo($attributes['extraPermissions']);
+        if (isset($attributes['passwordChangeAt']) && $attributes['passwordChangeAt'] != "") {
+            $user->update(['password_change_at' => $attributes['passwordChangeAt']]);
+        }
         $user->sendEmailVerificationNotification();
         return $user;
     }
