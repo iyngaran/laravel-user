@@ -32,6 +32,7 @@ class RegisterController extends Controller
         $request->only(
             [
                 'name',
+                'last_name',
                 'email',
                 'password',
                 'company_name',
