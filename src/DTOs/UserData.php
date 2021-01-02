@@ -17,6 +17,11 @@ class UserData extends DataTransferObject
      */
     public $name;
 
+     /**
+     * @var string|null
+     */
+    public $lastName;
+
     /**
      * @var string|null
      */
@@ -102,6 +107,7 @@ class UserData extends DataTransferObject
         return (new self(
             [
                 'name' => ucfirst($request->input('name')),
+                'lastName' => ucfirst($request->input('last_name')),
                 'email' => $request->input('email'),
                 'password' => $request->input('password'),
                 'companyName' => $request->input('company_name'),

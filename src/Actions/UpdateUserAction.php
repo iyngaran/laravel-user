@@ -20,7 +20,8 @@ class UpdateUserAction
 
         $user->update(
             [
-                'name' => $attributes['name']
+                'name' => $attributes['name'],
+                'last_name' => $attributes['lastName']
             ]
         );
 

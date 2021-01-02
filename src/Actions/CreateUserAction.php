@@ -13,6 +13,7 @@ class CreateUserAction
         $user = $this->getUserModel()::create(
             [
                 'name' => $attributes['name'],
+                'last_name' => $attributes['lastName'],
                 'email' => $attributes['email'],
                 'password' => $attributes['password'],
             ]
