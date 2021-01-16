@@ -3,7 +3,9 @@
 namespace Iyngaran\LaravelUser\Http\Controllers\Api;
 
 
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Iyngaran\LaravelUser\Http\Resources\User as UserResource;
 use Iyngaran\LaravelUser\Http\Requests\User as UserRequest;
 use Iyngaran\LaravelUser\Repositories\UserRepositoryInterface;
@@ -62,4 +64,32 @@ class UserController extends Controller
             (new DeleteUserAction())->execute($id)
         );
     }
+
+    public function uploadProfilePicture(Request $request)
+    {
+        try {
+            $file = $request->file('file');
+            $userId = $request->input('user-id');
+            $file_name = date('Ymdhis') . "_" . trim(str_replace(" ", "_", $file->getClientOriginalName()));
+            Storage::disk('user-profile-images')->put($file_name, File::get($file));
+        } catch (\Exception $e) {
+            return response(['errors' => ['message' => $e->getMessage()]], 404);
+        }
+
+        $userModel = config('iyngaran.user.user_model');
+        $user = $userModel::find($userId)->update(
+            [
+                'profile_pic' => $file_name
+            ]
+        );
+
+        return response()->json(
+            [
+                'user' => $user,
+                'message' => 'Successfully updated the profile picture!'
+            ],
+            200
+        );
+    }
+
 }

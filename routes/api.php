@@ -17,5 +17,6 @@ Route::middleware('auth:sanctum')->group(
                 'users' => 'UserController',
             ]
         );
+        Route::post('/users/upload-profile-picture', 'UserController@uploadProfilePicture')->name('users.uploadProfilePicture');
     }
 );
