@@ -65,6 +65,7 @@ class AuthController extends Controller
                         $message->subject($this->getEmailSubject());
                     }
                 );
+                dd($response);
                 switch ($response) {
                     case Password::RESET_LINK_SENT:
                         return response()->json(["message" => trans($response)], Response::HTTP_OK);
