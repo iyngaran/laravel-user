@@ -77,12 +77,12 @@ class UserController extends Controller
         }
 
         $userModel = config('iyngaran.user.user_model');
-        $user = $userModel::find($userId)->update(
+        $userModel::find($userId)->update(
             [
                 'profile_pic' => $file_name
             ]
         );
-
+        $user = $userModel::find($userId);
         return response()->json(
             [
                 'user' => $user,
