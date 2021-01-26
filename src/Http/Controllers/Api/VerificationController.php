@@ -41,6 +41,8 @@ class VerificationController extends Controller
                 ]
             );
         }
+        
+        return redirect('/login');
 
         return response()->json(
             [
