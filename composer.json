@@ -20,7 +20,7 @@
         "doctrine/dbal": "^2.10",
         "iyngaran/api-response": "dev-develop",
         "laravel/sanctum": "^2.6",
-        "spatie/data-transfer-object": "^1.13",
+        "spatie/data-transfer-object": "^2.8",
         "spatie/laravel-permission": "^3.13"
     },
     "require-dev": {
