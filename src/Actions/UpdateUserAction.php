@@ -74,7 +74,7 @@ class UpdateUserAction
         }
 
 
-        return $user;
+        return $this->getUserModel()::find($userId);;
     }
 
     private function getUserModel()
